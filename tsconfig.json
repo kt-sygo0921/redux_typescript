@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "outDir": "./app/view/js/es6",
+        "sourceMap": true,
+        "jsx": "react"
+    },
+    "files": [
+        "app/src/ts/app.ts",
+        "app/src/ts/main.tsx",
+        "app/src/ts/test.tsx",
+        "app/src/ts/chapter_3.tsx",
+        "app/src/ts/chapter_4.tsx",
+        //interface
+        "app/src/ts/interface/chapter_03.ts"
+    ],
+    "filesGlob": [
+        "app/src/ts/**/*.tsx",
+        "app/src/ts/**/*.ts"
+    ],
+    "exclude": []
+}
