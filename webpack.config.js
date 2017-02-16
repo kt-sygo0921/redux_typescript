@@ -11,7 +11,7 @@ module.exports = [{
         extensions: ['.ts', '.tsx', '.js']
     },
     entry: {
-        main:'./app/src/index.ts'
+        main:'./app/src/index.tsx'
     },
     output: {
         publicPath:'',

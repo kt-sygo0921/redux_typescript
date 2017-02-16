@@ -1,29 +1,37 @@
-import React,{Component} from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
+import {act} from './action';
 
 /*Acttionのインポート*/
 /*あとで*/
 
-export class App extends React.Component<any,any> {
-    render() {
-        return (
-            <div>
-                <input type="text" ref='input' /><br/>
-                <button onClick= {(e) => this.onAddBtnClicked(e)}>Add</button>
-                <button>clear</button>
-                <ul>
-
-                </ul>
+class testredux extends React.Component<any,any> {
+    render(){
+        console.log(this.props.value);
+        return(
+            <div onLoad={this.props.hoge(this.props.value)}>
+                {this.props.value}
             </div>
         )
     }
-    onAddBtnClicked(e) {
-        let input = this.refs.input
-        let text = input.value.trim()
-        if(!text) {
-            return alert('何かテキストを入力してください')
-        }
-        input.value = '';
-        this.props.dispatch(addText(text))
+}
+
+function mapStateProps(state) {
+    console.log(state);
+    return{
+        value: state.actReducer.value
     }
 }
+
+function mapDispatchProps(dispatch) {
+    return {
+        hoge(value) {
+            dispatch(act(value));
+        }
+    }
+}
+
+export const AppContainer = connect (
+    mapStateProps,
+    mapDispatchProps
+)(testredux)
